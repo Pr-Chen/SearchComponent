@@ -17,6 +17,7 @@ class SearchViewKit: NSObject {
     
     public let textField: UITextField = UITextField()
     public var delegate: SearchViewKitDelegate?
+    public var recordCount: Int = 10
     
     @IBOutlet var historyView: UIView! {
         didSet {
@@ -32,13 +33,20 @@ class SearchViewKit: NSObject {
     
     @IBOutlet weak var clearButton: UIButton!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellID")
+        }
+    }
     
     @IBOutlet weak var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 3
         }
     }
+    
+    var historyAry = [String]()
+    
     
     override init() {
         super.init()
@@ -47,6 +55,7 @@ class SearchViewKit: NSObject {
         historyView = Bundle.main.loadNibNamed("HistoryView", owner: self, options: nil)?.first as! UIView!
     }
     
+
     /// 初始化搜索框
     private func setupTextField() {
         textField.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
@@ -78,11 +87,7 @@ class SearchViewKit: NSObject {
     
 }
 
-//MARK:- 初始化
-extension SearchViewKit {
-    
-}
-
+//MARK:- textField代理
 extension SearchViewKit: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -92,5 +97,70 @@ extension SearchViewKit: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         delegate?.didEndEditing(in: self)
+        
+        //存储记录
+        
+    }
+}
+
+//MARK:- tableView数据源
+extension SearchViewKit: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return historyAry.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID")!
+        
+        cell.textLabel?.text = historyAry[indexPath.row]
+        
+        return cell
+    }
+}
+
+extension SearchViewKit: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+//MARK:- 事件响应
+extension SearchViewKit {
+    @IBAction func clickClearButton(_ sender: UIButton) {
+        
+    }
+}
+
+//MARK:- 私有方法
+extension SearchViewKit {
+    func clearSearchHistory() {
+        try? FileManager.default.removeItem(at: documentUrl(for: "SearchHistory.plist"))
+    }
+    
+    func save(text: String?) {
+        guard let word = text else {
+            return
+        }
+        
+        if let index = historyAry.index(of: word) {
+            historyAry.remove(at: index)
+        }
+        
+        historyAry.insert(word, at: 0)
+        if historyAry.count > recordCount {
+            historyAry.removeLast()
+        }
+        saveSearchHistory()
+    }
+    
+    func saveSearchHistory() {
+        let ary = historyAry as NSArray
+        ary.write(to: documentUrl(for: "SearchHistory.plist"), atomically: true)
+    }
+    
+    func documentUrl(`for` fileName: String) -> URL {
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let filePath = path + "/" + fileName
+        return URL(fileURLWithPath: filePath)
     }
 }
