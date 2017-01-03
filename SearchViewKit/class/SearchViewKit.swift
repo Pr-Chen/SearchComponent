@@ -18,18 +18,33 @@ class SearchViewKit: NSObject {
     public let textField: UITextField = UITextField()
     public var delegate: SearchViewKitDelegate?
     
-    @IBOutlet var historyView: UIView!
+    @IBOutlet var historyView: UIView! {
+        didSet {
+            historyView.layer.masksToBounds = false
+            historyView.layer.shadowColor = UIColor(white: 0, alpha: 0.5).cgColor
+            historyView.layer.shadowRadius = 3
+            historyView.layer.shadowOpacity = 0.5
+            historyView.layer.shadowOffset = .zero
+        }
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var clearButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var containerView: UIView!
     
-    
+    @IBOutlet weak var containerView: UIView! {
+        didSet {
+            containerView.layer.cornerRadius = 3
+        }
+    }
     
     override init() {
         super.init()
         setupTextField()
-        setupHistoryView()
+        
+        historyView = Bundle.main.loadNibNamed("HistoryView", owner: self, options: nil)?.first as! UIView!
     }
     
     /// 初始化搜索框
@@ -53,38 +68,6 @@ class SearchViewKit: NSObject {
         textField.clearButtonMode = .whileEditing
     }
     
-    /// 初始化历史记录视图
-    private func setupHistoryView() {
-        historyView = Bundle.main.loadNibNamed("HistoryView", owner: self, options: nil)?.first as! UIView!
-        
-        //加阴影
-        historyView.layer.masksToBounds = false
-        historyView.layer.shadowColor = UIColor(white: 0, alpha: 0.5).cgColor
-        historyView.layer.shadowRadius = 3
-        historyView.layer.shadowOpacity = 0.5
-        historyView.layer.shadowOffset = .zero
-        
-        setupContainerView()
-    }
-    
-    private func setupContainerView() {
-        //设置圆角
-        containerView.layer.cornerRadius = 3
-    }
-    
-    /// 初始化标题标签
-    private func setupTitleLabel() {
-        
-        titleLabel.text = "最近搜索"
-        titleLabel.font = UIFont.systemFont(ofSize: 12)
-        titleLabel.textColor = UIColor(white: 0.6, alpha: 1)
-    }
-    
-    /// 初始化清空按钮
-    private func setupClearButton() {
-        clearButton.setImage(UIImage(named:"trash"), for: .normal)
-    }
-    
     /// 初始化表格
     private func setupTableView() {
         
@@ -92,6 +75,11 @@ class SearchViewKit: NSObject {
     }
     
     
+    
+}
+
+//MARK:- 初始化
+extension SearchViewKit {
     
 }
 
