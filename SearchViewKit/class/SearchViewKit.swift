@@ -1,6 +1,6 @@
 //
-//  SearchComponent.swift
-//  SearchComponent
+//  SearchViewKit.swift
+//  SearchViewKit
 //
 //  Created by Mr.Chen on 2017/1/2.
 //  Copyright © 2017年 Mr.Chen. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchComponent: NSObject {
+class SearchViewKit: NSObject {
     
     public let textField: UITextField = UITextField()
     public let historyView: UIView = UIView()
@@ -72,6 +72,6 @@ class SearchComponent: NSObject {
     
 }
 
-extension SearchComponent: UITextFieldDelegate {
+extension SearchViewKit: UITextFieldDelegate {
     
 }

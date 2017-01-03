@@ -12,18 +12,18 @@
 		746B33F31E1A693600AAF5A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 746B33F11E1A693600AAF5A9 /* Main.storyboard */; };
 		746B33F51E1A693600AAF5A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 746B33F41E1A693600AAF5A9 /* Assets.xcassets */; };
 		746B33F81E1A693600AAF5A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 746B33F61E1A693600AAF5A9 /* LaunchScreen.storyboard */; };
-		746B34001E1A696300AAF5A9 /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B33FF1E1A696300AAF5A9 /* SearchComponent.swift */; };
+		746B34001E1A696300AAF5A9 /* SearchViewKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B33FF1E1A696300AAF5A9 /* SearchViewKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		746B33EA1E1A693600AAF5A9 /* SearchComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		746B33EA1E1A693600AAF5A9 /* SearchViewKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchViewKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		746B33ED1E1A693600AAF5A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		746B33EF1E1A693600AAF5A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		746B33F21E1A693600AAF5A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		746B33F41E1A693600AAF5A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		746B33F71E1A693600AAF5A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		746B33F91E1A693600AAF5A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		746B33FF1E1A696300AAF5A9 /* SearchComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
+		746B33FF1E1A696300AAF5A9 /* SearchViewKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,10 +37,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7402E2FD1E1B40930048FEF8 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				746B33FF1E1A696300AAF5A9 /* SearchViewKit.swift */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
 		746B33E11E1A693500AAF5A9 = {
 			isa = PBXGroup;
 			children = (
-				746B33EC1E1A693600AAF5A9 /* SearchComponent */,
+				746B33EC1E1A693600AAF5A9 /* SearchViewKit */,
 				746B33EB1E1A693600AAF5A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +56,31 @@
 		746B33EB1E1A693600AAF5A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				746B33EA1E1A693600AAF5A9 /* SearchComponent.app */,
+				746B33EA1E1A693600AAF5A9 /* SearchViewKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		746B33EC1E1A693600AAF5A9 /* SearchComponent */ = {
+		746B33EC1E1A693600AAF5A9 /* SearchViewKit */ = {
 			isa = PBXGroup;
 			children = (
+				7402E2FD1E1B40930048FEF8 /* class */,
 				746B33ED1E1A693600AAF5A9 /* AppDelegate.swift */,
 				746B33EF1E1A693600AAF5A9 /* ViewController.swift */,
-				746B33FF1E1A696300AAF5A9 /* SearchComponent.swift */,
 				746B33F11E1A693600AAF5A9 /* Main.storyboard */,
 				746B33F41E1A693600AAF5A9 /* Assets.xcassets */,
 				746B33F61E1A693600AAF5A9 /* LaunchScreen.storyboard */,
 				746B33F91E1A693600AAF5A9 /* Info.plist */,
 			);
-			path = SearchComponent;
+			path = SearchViewKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		746B33E91E1A693600AAF5A9 /* SearchComponent */ = {
+		746B33E91E1A693600AAF5A9 /* SearchViewKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 746B33FC1E1A693600AAF5A9 /* Build configuration list for PBXNativeTarget "SearchComponent" */;
+			buildConfigurationList = 746B33FC1E1A693600AAF5A9 /* Build configuration list for PBXNativeTarget "SearchViewKit" */;
 			buildPhases = (
 				746B33E61E1A693600AAF5A9 /* Sources */,
 				746B33E71E1A693600AAF5A9 /* Frameworks */,
@@ -82,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = SearchComponent;
+			name = SearchViewKit;
 			productName = SearchKit;
-			productReference = 746B33EA1E1A693600AAF5A9 /* SearchComponent.app */;
+			productReference = 746B33EA1E1A693600AAF5A9 /* SearchViewKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,11 +107,12 @@
 				TargetAttributes = {
 					746B33E91E1A693600AAF5A9 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6QEB559EPD;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 746B33E51E1A693500AAF5A9 /* Build configuration list for PBXProject "SearchComponent" */;
+			buildConfigurationList = 746B33E51E1A693500AAF5A9 /* Build configuration list for PBXProject "SearchViewKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -116,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				746B33E91E1A693600AAF5A9 /* SearchComponent */,
+				746B33E91E1A693600AAF5A9 /* SearchViewKit */,
 			);
 		};
 /* End PBXProject section */
@@ -141,7 +150,7 @@
 			files = (
 				746B33F01E1A693600AAF5A9 /* ViewController.swift in Sources */,
 				746B33EE1E1A693600AAF5A9 /* AppDelegate.swift in Sources */,
-				746B34001E1A696300AAF5A9 /* SearchComponent.swift in Sources */,
+				746B34001E1A696300AAF5A9 /* SearchViewKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +273,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/SearchComponent/Info.plist";
+				DEVELOPMENT_TEAM = 6QEB559EPD;
+				INFOPLIST_FILE = "$(SRCROOT)/SearchViewKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Chen.SearchComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,7 +286,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/SearchComponent/Info.plist";
+				DEVELOPMENT_TEAM = 6QEB559EPD;
+				INFOPLIST_FILE = "$(SRCROOT)/SearchViewKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Chen.SearchComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,7 +298,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		746B33E51E1A693500AAF5A9 /* Build configuration list for PBXProject "SearchComponent" */ = {
+		746B33E51E1A693500AAF5A9 /* Build configuration list for PBXProject "SearchViewKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				746B33FA1E1A693600AAF5A9 /* Debug */,
@@ -296,7 +307,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		746B33FC1E1A693600AAF5A9 /* Build configuration list for PBXNativeTarget "SearchComponent" */ = {
+		746B33FC1E1A693600AAF5A9 /* Build configuration list for PBXNativeTarget "SearchViewKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				746B33FD1E1A693600AAF5A9 /* Debug */,

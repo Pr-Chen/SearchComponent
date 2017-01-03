@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SearchComponent
+//  SearchViewKit
 //
 //  Created by Mr.Chen on 2017/1/2.
 //  Copyright © 2017年 Mr.Chen. All rights reserved.
