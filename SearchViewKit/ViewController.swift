@@ -10,16 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let searchKit = SearchViewKit()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.addSubview(searchKit.historyView)
+        searchKit.delegate = self
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchKit.textField)
+        
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        searchKit.historyView.frame = CGRect(x: view.frame.maxX-240, y: 74, width: 200, height: 300)
     }
+}
 
-
+extension ViewController: SearchViewKitDelegate {
+    
+    func didBeginEditing(in searchViewKit: SearchViewKit) {
+        searchKit.historyView.isHidden = false
+    }
+    
+    func didEndEditing(in searchViewKit: SearchViewKit) {
+        searchKit.historyView.isHidden = true
+    }
 }
 

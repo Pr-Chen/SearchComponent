@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7402E3101E1B4D3A0048FEF8 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7402E30D1E1B4D3A0048FEF8 /* search@2x.png */; };
+		7402E3111E1B4D3A0048FEF8 /* search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7402E30E1E1B4D3A0048FEF8 /* search@3x.png */; };
+		7402E3121E1B4D3A0048FEF8 /* trash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7402E30F1E1B4D3A0048FEF8 /* trash@2x.png */; };
+		7402E3161E1B8AB70048FEF8 /* HistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7402E3151E1B8AB70048FEF8 /* HistoryView.xib */; };
 		746B33EE1E1A693600AAF5A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B33ED1E1A693600AAF5A9 /* AppDelegate.swift */; };
 		746B33F01E1A693600AAF5A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B33EF1E1A693600AAF5A9 /* ViewController.swift */; };
 		746B33F31E1A693600AAF5A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 746B33F11E1A693600AAF5A9 /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7402E30D1E1B4D3A0048FEF8 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		7402E30E1E1B4D3A0048FEF8 /* search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@3x.png"; sourceTree = "<group>"; };
+		7402E30F1E1B4D3A0048FEF8 /* trash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trash@2x.png"; sourceTree = "<group>"; };
+		7402E3151E1B8AB70048FEF8 /* HistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryView.xib; sourceTree = "<group>"; };
 		746B33EA1E1A693600AAF5A9 /* SearchViewKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchViewKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		746B33ED1E1A693600AAF5A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		746B33EF1E1A693600AAF5A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,9 +48,21 @@
 		7402E2FD1E1B40930048FEF8 /* class */ = {
 			isa = PBXGroup;
 			children = (
+				7402E30C1E1B4D200048FEF8 /* images */,
 				746B33FF1E1A696300AAF5A9 /* SearchViewKit.swift */,
+				7402E3151E1B8AB70048FEF8 /* HistoryView.xib */,
 			);
 			path = class;
+			sourceTree = "<group>";
+		};
+		7402E30C1E1B4D200048FEF8 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7402E30D1E1B4D3A0048FEF8 /* search@2x.png */,
+				7402E30E1E1B4D3A0048FEF8 /* search@3x.png */,
+				7402E30F1E1B4D3A0048FEF8 /* trash@2x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		746B33E11E1A693500AAF5A9 = {
@@ -135,9 +155,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7402E3101E1B4D3A0048FEF8 /* search@2x.png in Resources */,
 				746B33F81E1A693600AAF5A9 /* LaunchScreen.storyboard in Resources */,
 				746B33F51E1A693600AAF5A9 /* Assets.xcassets in Resources */,
+				7402E3161E1B8AB70048FEF8 /* HistoryView.xib in Resources */,
+				7402E3111E1B4D3A0048FEF8 /* search@3x.png in Resources */,
 				746B33F31E1A693600AAF5A9 /* Main.storyboard in Resources */,
+				7402E3121E1B4D3A0048FEF8 /* trash@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6QEB559EPD;
 				INFOPLIST_FILE = "$(SRCROOT)/SearchViewKit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Chen.SearchComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,6 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6QEB559EPD;
 				INFOPLIST_FILE = "$(SRCROOT)/SearchViewKit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Chen.SearchComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
