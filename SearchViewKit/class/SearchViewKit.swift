@@ -17,7 +17,7 @@ class SearchViewKit: NSObject {
     
     public let textField: UITextField = UITextField()
     public var delegate: SearchViewKitDelegate?
-    public var recordCount: Int = 10
+    public var recordCount = 10
     
     @IBOutlet var historyView: UIView! {
         didSet {
@@ -67,7 +67,6 @@ class SearchViewKit: NSObject {
         
         let leftIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
         leftIcon.contentMode = .center
-        
         leftIcon.image = UIImage(named: "search")
         
         textField.leftView = leftIcon
