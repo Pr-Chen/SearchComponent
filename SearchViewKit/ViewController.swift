@@ -34,7 +34,7 @@ extension ViewController: SearchViewKitDelegate {
         searchKit.historyView.isHidden = false
     }
     
-    func didEndEditing(in searchViewKit: SearchViewKit) {
+    func didEndEditing(in searchViewKit: SearchViewKit, text: String?) {
         searchKit.historyView.isHidden = true
     }
 }

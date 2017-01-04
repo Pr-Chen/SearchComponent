@@ -10,7 +10,7 @@ import UIKit
 
 protocol SearchViewKitDelegate {
     func didBeginEditing(in searchViewKit: SearchViewKit)
-    func didEndEditing(in searchViewKit: SearchViewKit)
+    func didEndEditing(in searchViewKit: SearchViewKit, text: String?)
 }
 
 class SearchViewKit: NSObject {
@@ -33,11 +33,7 @@ class SearchViewKit: NSObject {
     
     @IBOutlet weak var clearButton: UIButton!
     
-    @IBOutlet weak var tableView: UITableView! {
-        didSet {
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellID")
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var containerView: UIView! {
         didSet {
@@ -53,8 +49,9 @@ class SearchViewKit: NSObject {
         setupTextField()
         
         historyView = Bundle.main.loadNibNamed("HistoryView", owner: self, options: nil)?.first as! UIView!
+        readSearchHistory()
+        
     }
-    
 
     /// 初始化搜索框
     private func setupTextField() {
@@ -66,6 +63,7 @@ class SearchViewKit: NSObject {
         textField.font = .systemFont(ofSize: 15)
         textField.textColor = UIColor(white: 0.2, alpha: 1)
         textField.layer.cornerRadius = 15
+        textField.enablesReturnKeyAutomatically = true
         
         let leftIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
         leftIcon.contentMode = .center
@@ -96,10 +94,20 @@ extension SearchViewKit: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.didEndEditing(in: self)
+        delegate?.didEndEditing(in: self, text: textField.text)
         
         //存储记录
-        
+        save(text: textField.text)
+        tableView.reloadData()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" {
+            save(text: textField.text)
+            tableView.reloadData()
+            return false
+        }
+        return true
     }
 }
 
@@ -110,14 +118,19 @@ extension SearchViewKit: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID")!
+        var cell = tableView.dequeueReusableCell(withIdentifier: "CellID")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "CellID")
+            cell?.textLabel?.font = UIFont.systemFont(ofSize: 12)
+            cell?.textLabel?.textColor = UIColor(white: 0.2, alpha: 1)
+        }
+        cell?.textLabel?.text = historyAry[indexPath.row]
         
-        cell.textLabel?.text = historyAry[indexPath.row]
-        
-        return cell
+        return cell!
     }
 }
 
+//MARK:- tableView代理
 extension SearchViewKit: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -127,7 +140,8 @@ extension SearchViewKit: UITableViewDelegate {
 //MARK:- 事件响应
 extension SearchViewKit {
     @IBAction func clickClearButton(_ sender: UIButton) {
-        
+        clearSearchHistory()
+        tableView.reloadData()
     }
 }
 
@@ -139,6 +153,10 @@ extension SearchViewKit {
     
     func save(text: String?) {
         guard let word = text else {
+            return
+        }
+        
+        if word.isEmpty {
             return
         }
         
@@ -156,6 +174,15 @@ extension SearchViewKit {
     func saveSearchHistory() {
         let ary = historyAry as NSArray
         ary.write(to: documentUrl(for: "SearchHistory.plist"), atomically: true)
+    }
+    
+    func readSearchHistory() {
+        let tempAry = NSArray.init(contentsOf: documentUrl(for: "SearchHistory.plist"))
+        guard let ary = tempAry  else {
+            historyAry = []
+            return
+        }
+        historyAry = ary as! Array
     }
     
     func documentUrl(`for` fileName: String) -> URL {
