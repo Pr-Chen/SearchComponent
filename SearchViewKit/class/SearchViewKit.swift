@@ -102,6 +102,7 @@ extension SearchViewKit: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
+            delegate?.didEndEditing(in: self, text: textField.text)
             save(text: textField.text)
             tableView.reloadData()
             return false
@@ -147,6 +148,7 @@ extension SearchViewKit {
 //MARK:- 私有方法
 extension SearchViewKit {
     func clearSearchHistory() {
+        historyAry.removeAll()
         try? FileManager.default.removeItem(at: documentUrl(for: "SearchHistory.plist"))
     }
     
