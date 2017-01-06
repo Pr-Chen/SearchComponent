@@ -10,7 +10,10 @@ import UIKit
 
 protocol SearchViewKitDelegate {
     func didBeginEditing(in searchViewKit: SearchViewKit)
-    func didEndEditing(in searchViewKit: SearchViewKit, text: String?)
+    func didEndEditing(in searchViewKit: SearchViewKit)
+    func didTapReturnKey(in searchViewKit: SearchViewKit)
+    func didSelected(text: String?, in searchViewKit: SearchViewKit)
+    func didClearSearchHistory(in searchViewKit: SearchViewKit)
 }
 
 class SearchViewKit: NSObject {
@@ -74,14 +77,6 @@ class SearchViewKit: NSObject {
         textField.clearButtonMode = .whileEditing
     }
     
-    /// 初始化表格
-    private func setupTableView() {
-        
-        
-    }
-    
-    
-    
 }
 
 //MARK:- textField代理
@@ -93,7 +88,7 @@ extension SearchViewKit: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.didEndEditing(in: self, text: textField.text)
+        delegate?.didEndEditing(in: self)
         
         //存储记录
         save(text: textField.text)
@@ -102,9 +97,11 @@ extension SearchViewKit: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
-            delegate?.didEndEditing(in: self, text: textField.text)
+            delegate?.didEndEditing(in: self)
             save(text: textField.text)
             tableView.reloadData()
+            textField.resignFirstResponder()
+            delegate?.didTapReturnKey(in: self)
             return false
         }
         return true
@@ -133,7 +130,7 @@ extension SearchViewKit: UITableViewDataSource {
 //MARK:- tableView代理
 extension SearchViewKit: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        delegate?.didSelected(text: textField.text, in: self)
     }
 }
 
@@ -142,6 +139,7 @@ extension SearchViewKit {
     @IBAction func clickClearButton(_ sender: UIButton) {
         clearSearchHistory()
         tableView.reloadData()
+        delegate?.didClearSearchHistory(in: self)
     }
 }
 

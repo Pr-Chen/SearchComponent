@@ -127,8 +127,8 @@
 				TargetAttributes = {
 					746B33E91E1A693600AAF5A9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6QEB559EPD;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = YW4K42Y4Q5;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -297,15 +297,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6QEB559EPD;
+				CODE_SIGN_IDENTITY = "iPhone Developer: apple_ltd@doublev2v.com (8R92M94FPY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Junjing lu (3WGE7FNR23)";
+				DEVELOPMENT_TEAM = YW4K42Y4Q5;
 				INFOPLIST_FILE = "$(SRCROOT)/SearchViewKit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Chen.SearchViewKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9c1e454a-f65a-469a-b0a5-baeeac6774c7";
+				PROVISIONING_PROFILE_SPECIFIER = "包含所有设备的inhouse通用测试证书";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -314,8 +315,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6QEB559EPD;
+				CODE_SIGN_IDENTITY = "iPhone Developer: apple_ltd@doublev2v.com (8R92M94FPY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = YW4K42Y4Q5;
 				INFOPLIST_FILE = "$(SRCROOT)/SearchViewKit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
