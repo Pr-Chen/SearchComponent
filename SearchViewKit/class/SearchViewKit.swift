@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchViewKitDelegate {
+public protocol SearchViewKitDelegate {
     func didBeginEditing(in searchViewKit: SearchViewKit)
     func didEndEditing(in searchViewKit: SearchViewKit)
     func didTapReturnKey(in searchViewKit: SearchViewKit)
@@ -16,7 +16,7 @@ protocol SearchViewKitDelegate {
     func didClearSearchHistory(in searchViewKit: SearchViewKit)
 }
 
-class SearchViewKit: NSObject {
+public class SearchViewKit: NSObject {
     
     public let textField: UITextField = UITextField()
     public var delegate: SearchViewKitDelegate?
